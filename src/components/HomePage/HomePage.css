@@ -1,0 +1,9 @@
+.banner-section{
+    background: url('../../asseset/Banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.Quote{
+    background: black;
+}
