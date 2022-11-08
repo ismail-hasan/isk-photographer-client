@@ -5,10 +5,12 @@ import SingleServiceCard from './SingleServiceCard';
 
 const ServicesPage = () => {
     TitleHook('Services')
-    const totalService = useLoaderData()
+    const allService = useLoaderData()
+
+    const totalService = allService.result
     return (
         <div>
-            <h3>Total setvices hare : {totalService.length}</h3>
+            <h3>Total setvices hare : </h3>
             <div className='grid grid-cols-3 gap-10 w-[90%] mx-auto mb-10 my-20'>
                 {
                     totalService.map(singleService => <SingleServiceCard

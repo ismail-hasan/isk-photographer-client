@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 
 const Header = () => {
@@ -35,15 +35,18 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='blog'>Blog</NavLink></li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='blog'>Blog</Link></li>
 
                     {user?.email ?
-                        <li><NavLink onClick={handleOut} to='login'>LogOut</NavLink></li>
+                        <>
+                            <li><Link onClick={handleOut} to='login'>LogOut</Link></li>
+                            <li> <Link> My Services</Link> </li>
+                        </>
                         :
                         <>
-                            <li><NavLink to='login'>Login</NavLink></li>
-                            <li><NavLink to='register'>Register</NavLink></li>
+                            <li><Link to='login'>Login</Link></li>
+                            <li><Link to='register'>Register</Link></li>
                         </>
 
 

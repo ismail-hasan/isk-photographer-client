@@ -5,5 +5,9 @@
     background-position: center;
 }
 .Quote{
-    background: black;
+    background:linear-gradient(rgba(0,0,0,0.7) ,rgba(0,0,0,0.7)), url('../../asseset/quote.jpg');
+    background-size: cover;
+    position: sticky;
+
+
 }

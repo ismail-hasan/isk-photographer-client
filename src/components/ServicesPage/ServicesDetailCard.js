@@ -8,6 +8,7 @@ const ServicesDetailCard = ({ detail }) => {
     const { _id, name, img, dec } = detail
     const { user } = useContext(authContext)
     const [reviews, setReviews] = useState([])
+    const [newReviw, setNewReviw] = useState(false)
     console.log(reviews)
 
 
@@ -18,7 +19,7 @@ const ServicesDetailCard = ({ detail }) => {
                 console.log(data)
                 setReviews(data)
             })
-    }, [])
+    }, [newReviw, _id])
 
 
     const handleForom = (e) => {
@@ -49,8 +50,9 @@ const ServicesDetailCard = ({ detail }) => {
                 //     alert('done')
                 // }
                 if (data.acknowledged) {
-                    const newReview = [...reviews, data]
-                    setReviews(newReview)
+                    // const newReview = [...reviews, data]
+                    setNewReviw(!newReviw)
+                    console.log(data)
                     alert('review added success')
                     form.reset()
 

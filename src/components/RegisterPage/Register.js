@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Register = () => {
     const { createUser } = useContext(authContext)
     TitleHook('Register')
+    const nagivate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault()
@@ -22,6 +23,8 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                nagivate('/')
+
             })
             .catch(e => console.log(e))
     }

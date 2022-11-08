@@ -5,7 +5,7 @@ import ServicesDetailCard from './ServicesDetailCard';
 const ServicesDetails = () => {
     const dataDetails = useLoaderData()
 
-    
+
     return (
         <div className='bg-base-200'>
             {
@@ -13,7 +13,7 @@ const ServicesDetails = () => {
                     key={detail._id} detail={detail}
                 ></ServicesDetailCard>)
             }
-            
+
         </div>
     );
 };
