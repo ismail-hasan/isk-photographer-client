@@ -30,8 +30,8 @@ const Services = () => {
                 }
             </div>
 
-            <Link to='/services'>
-                <button className='text-lg px-2 py-1 flex justify-center items-center bg-red-500 text-white text-center'>See More</button>
+            <Link className='text-center flex justify-center my-10' to='/services'>
+                <button className='text-lg px-4 py-1 rounded-sm flex justify-center items-center bg-red-500 text-white text-center'>Details</button>
             </Link>
         </>
     );
