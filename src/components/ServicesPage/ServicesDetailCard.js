@@ -5,12 +5,15 @@ import Review from './Review';
 
 const ServicesDetailCard = ({ detail }) => {
     const { _id, name, img, dec } = detail
+    console.log('id is', _id)
     const { user } = useContext(authContext)
+    // console.log(user)
     const [reviews, setReviews] = useState([])
+    console.log(reviews)
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch(`http://localhost:5000/review?seviceid=${_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -24,11 +27,13 @@ const ServicesDetailCard = ({ detail }) => {
         const form = e.target
         const fullname = `${form.firstName.value} ${form.lastName.value}`
         const message = form.message.value
+        const email = form.email.value
         const reviewData = {
-            serviceID: _id,
+            seviceid: _id,
             fullname,
             message,
             name,
+            email,
         }
         console.log(reviewData)
         fetch('http://localhost:5000/review', {
@@ -41,8 +46,10 @@ const ServicesDetailCard = ({ detail }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    form.reset()
+                    const newReview = [...reviews, data]
+                    setReviews(newReview)
                     alert('review added success')
+                    form.reset()
                 }
             })
             .catch(e => console.log(e))
@@ -62,7 +69,8 @@ const ServicesDetailCard = ({ detail }) => {
                     <p className='text-lg pt-5'>{dec}</p>
                 </div>
             </div>
-            <div>
+            <div className='grid gap-5 w-[80%] mx-auto mt-20'>
+                <h2 className='text-center text-3xl my-5 font-semibold'>AvailAble Review {reviews.length}</h2>
                 {
                     reviews.map(review => <Review
                         key={review._id} review={review}
