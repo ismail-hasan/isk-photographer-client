@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import Review from './Review';
 
+
 const ServicesDetailCard = ({ detail }) => {
     const { _id, name, img, dec } = detail
-    console.log('id is', _id)
     const { user } = useContext(authContext)
-    // console.log(user)
     const [reviews, setReviews] = useState([])
     console.log(reviews)
 
@@ -35,7 +34,8 @@ const ServicesDetailCard = ({ detail }) => {
             name,
             email,
         }
-        console.log(reviewData)
+
+
         fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
@@ -45,21 +45,27 @@ const ServicesDetailCard = ({ detail }) => {
         })
             .then(res => res.json())
             .then(data => {
+                // if (message.length >= 4) {
+                //     alert('done')
+                // }
                 if (data.acknowledged) {
                     const newReview = [...reviews, data]
                     setReviews(newReview)
                     alert('review added success')
                     form.reset()
+
                 }
+
             })
             .catch(e => console.log(e))
     }
+
 
     return (
         <div className="py-20">
             <div className='w-[90%] mx-auto bg-base-100 shadow-xl flex items-center'>
                 <div className='w-1/2'>
-                    <img src={img} alt="Shoes" />
+                    <img src={img} alt="" />
                 </div>
                 <div className="ml-10 w-1/2">
                     <h2 className="card-title text-3xl">
@@ -88,6 +94,7 @@ const ServicesDetailCard = ({ detail }) => {
                                 <input name='email' defaultValue={user?.email || 'Unregistered'} readOnly type="email" placeholder="Type here" className="input input-bordered input-info w-full mt-8" /> <br />
                                 <textarea name='message' className="textarea textarea-accent w-full mt-8 h-40" placeholder="Message" required></textarea>
                                 <button className='bg-black mb-5 text-white px-8 mt-5 text-lg rounded py-2'>Send</button>
+
                             </form>
                         </>
                         :

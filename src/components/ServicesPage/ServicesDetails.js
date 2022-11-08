@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+// import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { authContext } from '../../ContextProvider/ContextProvider';
 import ServicesDetailCard from './ServicesDetailCard';
 
 const ServicesDetails = () => {
