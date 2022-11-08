@@ -1,9 +1,12 @@
 import React from 'react';
+import TitleHook from '../../Hook/TitleHook';
+
 const Blog = () => {
+    TitleHook('Blog')
 
     return (
         <div>
-            <h1>blog page is hare</h1>
+
         </div>
     );
 };

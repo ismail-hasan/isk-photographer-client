@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
+import TitleHook from '../../Hook/TitleHook';
 
 const Login = () => {
     const { signInUser } = useContext(authContext)
+    TitleHook('Login')
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target

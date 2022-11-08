@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import TitleHook from '../../Hook/TitleHook';
 import SingleServiceCard from './SingleServiceCard';
 
 const ServicesPage = () => {
+    TitleHook('Services')
     const totalService = useLoaderData()
     return (
         <div>
