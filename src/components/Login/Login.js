@@ -4,7 +4,7 @@ import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Login = () => {
-    const { signInUser } = useContext(authContext)
+    const { signInUser, googleSingIn } = useContext(authContext)
     TitleHook('Login')
     const handleLogin = e => {
         e.preventDefault()
@@ -21,6 +21,14 @@ const Login = () => {
             })
             .catch(e => console.log(e))
 
+    }
+    const handleGoogle = () => {
+        googleSingIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(e => console.log(e))
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -45,6 +53,10 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div className=' text-center'>
+                        <p className=''>OR</p>
+                        <button onClick={handleGoogle} className='border mb-10 py-2 px-4 w-1/2 mt-5 mx-auto font-semibold'>Google</button>
+                    </div>
                 </div>
             </div>
         </div>

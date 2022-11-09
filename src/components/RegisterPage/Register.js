@@ -4,7 +4,7 @@ import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Register = () => {
-    const { createUser } = useContext(authContext)
+    const { createUser, googleSingIn } = useContext(authContext)
     TitleHook('Register')
     const nagivate = useNavigate()
 
@@ -28,9 +28,17 @@ const Register = () => {
             })
             .catch(e => console.log(e))
     }
+    const handleGoogle = () => {
+        googleSingIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(e => console.log(e))
+    }
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero py-10 min-h-screen bg-base-200">
             <div className="hero-content flex-col w-full">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleRegister} className="card-body">
@@ -58,6 +66,10 @@ const Register = () => {
                             <button className="btn btn-primary">Register Now</button>
                         </div>
                     </form>
+                    <div className=' text-center'>
+                        <p className=''>OR</p>
+                        <button onClick={handleGoogle} className='border mb-10 py-2 px-4 w-1/2 mt-5 mx-auto font-semibold'>Google</button>
+                    </div>
                 </div>
             </div>
         </div>
