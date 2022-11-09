@@ -38,10 +38,11 @@ const Header = () => {
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='blog'>Blog</Link></li>
 
+
                     {user?.email ?
                         <>
                             <li><Link onClick={handleOut} to='login'>LogOut</Link></li>
-                            <li> <Link> My Services</Link> </li>
+                            <li> <Link to="myservices">My Services</Link> </li>
                         </>
                         :
                         <>

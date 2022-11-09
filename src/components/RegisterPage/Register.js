@@ -6,7 +6,7 @@ import TitleHook from '../../Hook/TitleHook';
 const Register = () => {
     const { createUser, googleSingIn } = useContext(authContext)
     TitleHook('Register')
-    const nagivate = useNavigate()
+    const navigate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault()
@@ -23,7 +23,7 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
-                nagivate('/')
+                
 
             })
             .catch(e => console.log(e))
@@ -33,6 +33,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate('/')
+
             })
             .catch(e => console.log(e))
     }

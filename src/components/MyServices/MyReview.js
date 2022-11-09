@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Review = ({ review }) => {
-    const { name, fullname, message } = review
-    console.log(review)
+const MyReview = ({ myreview }) => {
+    const { fullname, name, message, email } = myreview
+    console.log(myreview)
     return (
-        <div className='bg-white p-5  w-[80%] mx-auto'>
+        <div className='bg-base-300 p-5 rounded-md'>
             <div className='flex items-center'>
                 <img className=' w-[60px] h-[60px] rounded-full object-cover' src="https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg" alt="" />
                 <h1 className='pl-4 capitalize text-lg'>{fullname}</h1>
@@ -15,4 +15,4 @@ const Review = ({ review }) => {
     );
 };
 
-export default Review;
+export default MyReview;

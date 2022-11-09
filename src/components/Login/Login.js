@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Login = () => {
     const { signInUser, googleSingIn } = useContext(authContext)
+    const navigate = useNavigate()
     TitleHook('Login')
     const handleLogin = e => {
         e.preventDefault()
@@ -27,6 +28,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate('/')
+
             })
             .catch(e => console.log(e))
     }

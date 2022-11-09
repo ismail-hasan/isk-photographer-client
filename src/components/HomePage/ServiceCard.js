@@ -11,8 +11,8 @@ const ServiceCard = ({ service }) => {
                     {name}
                     <div className="badge badge-secondary">NEW</div>
                 </h2>
-                <p>{dec}</p>
-                <Link to={`/services/${_id}`}>
+                <p> {dec.length > 50 ? dec.slice(0, 59) + " ......" : dec}</p>
+                <Link to={`services/${_id}`}>
                     <button className='bg-red-500 rounded-sm py-1 px-3 text-white capitalize mt-5  text-lg'>see more</button>
                 </Link>
             </div>

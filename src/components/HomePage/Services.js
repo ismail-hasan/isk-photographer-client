@@ -5,14 +5,20 @@ import ServiceCard from './ServiceCard';
 
 const Services = () => {
     const [services, setServices] = useState([])
-    console.log(services.res)
+
+
+    // const [count, setCount] = useState(0)
+    // const [page, setPage] = useState(0)
+    // const [size, setSize] = useState(4)
+    // console.log(count)
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch(`http://localhost:5000/limitservice`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setServices(data.result)
+                setServices(data)
+              
             })
     }, [])
 
