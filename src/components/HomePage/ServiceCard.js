@@ -13,7 +13,7 @@ const ServiceCard = ({ service }) => {
                 </h2>
                 <p> {dec.length > 50 ? dec.slice(0, 59) + " ......" : dec}</p>
                 <Link to={`services/${_id}`}>
-                    <button className='bg-red-500 rounded-sm py-1 px-3 text-white capitalize mt-5  text-lg'>see more</button>
+                    <button className='bg-[#e115e8] py-1 px-5 text-white capitalize mt-5  text-lg rounded'>Details</button>
                 </Link>
             </div>
         </div>

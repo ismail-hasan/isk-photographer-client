@@ -72,7 +72,7 @@ const ServicesDetailCard = ({ detail }) => {
                 <div className="ml-10 w-1/2">
                     <h2 className="card-title text-3xl">
                         {name}
-                        <div className="badge badge-secondary">NEW</div>
+                        {/* <div className="badge badge-secondary">NEW</div> */}
                     </h2>
                     <p className='text-lg pt-5'>{dec}</p>
                 </div>
