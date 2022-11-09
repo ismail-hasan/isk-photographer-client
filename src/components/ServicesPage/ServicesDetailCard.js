@@ -96,7 +96,6 @@ const ServicesDetailCard = ({ detail }) => {
                                 <input name='email' defaultValue={user?.email || 'Unregistered'} readOnly type="email" placeholder="Type here" className="input input-bordered input-info w-full mt-8" /> <br />
                                 <textarea name='message' className="textarea textarea-accent w-full mt-8 h-40" placeholder="Message" required></textarea>
                                 <button className='bg-black mb-5 text-white px-8 mt-5 text-lg rounded py-2'>Send</button>
-
                             </form>
                         </>
                         :

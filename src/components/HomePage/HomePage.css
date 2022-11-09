@@ -1,13 +1,12 @@
-.banner-section{
+.banner-section {
     background: url('../../asseset/Banner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-.Quote{
-    background:linear-gradient(rgba(0,0,0,0.7) ,rgba(0,0,0,0.7)), url('../../asseset/quote.jpg');
+
+.Quote {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../asseset/quote.jpg');
     background-size: cover;
-    position: sticky;
-
-
+    background-attachment: fixed;
 }
