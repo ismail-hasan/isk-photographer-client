@@ -8,7 +8,8 @@ import Register from './components/RegisterPage/Register';
 import Login from './components/Login/Login';
 import ServicesPage from './components/ServicesPage/ServicesPage';
 import ServicesDetails from './components/ServicesPage/ServicesDetails';
-import MyServices from './components/MyServices/MyServices';
+import MyReviews from './components/MyReview/MyReview';
+import PrivetRouter from './PrivetRouter/PrivetRouter';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,7 +20,7 @@ function App() {
         { path: '/blog', element: <Blog></Blog> },
         { path: '/login', element: <Login></Login> },
         { path: '/register', element: <Register></Register> },
-        { path: '/myservices', element: <MyServices></MyServices> },
+        { path: '/myreview', element: <PrivetRouter><MyReviews></MyReviews></PrivetRouter> },
         {
           path: '/services',
           element: <ServicesPage></ServicesPage>,

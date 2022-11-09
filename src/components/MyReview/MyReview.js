@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from '../../ContextProvider/ContextProvider';
-import MyReview from './MyReview';
+import MyReviewData from './MyReviewData';
 
-const MyServices = () => {
+
+const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([])
     const { user } = useContext(authContext)
     // console.log(user)
@@ -15,15 +16,16 @@ const MyServices = () => {
     return (
         <div className='bg-white m-20'>
             <div className='grid gap-10'>
+                <h3 className='text-center text-3xl font-semibold'>My All Review : {myReviews.length}</h3>
                 {
-                    myReviews.map(myreview => <MyReview
+                    myReviews.map(myreview => <MyReviewData
                         key={myreview._id} myreview={myreview}
                     >
-                    </MyReview>)
+                    </MyReviewData>)
                 }
             </div>
         </div>
     );
 };
 
-export default MyServices;
+export default MyReviews;
