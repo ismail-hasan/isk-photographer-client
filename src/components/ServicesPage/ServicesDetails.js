@@ -6,6 +6,7 @@ import ServicesDetailCard from './ServicesDetailCard';
 const ServicesDetails = () => {
     TitleHook('ServicesDetails')
     const dataDetails = useLoaderData()
+  
 
 
     return (

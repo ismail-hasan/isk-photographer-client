@@ -13,12 +13,16 @@ const ServicesDetailCard = ({ detail }) => {
     console.log(reviews)
 
 
+
     useEffect(() => {
         fetch(`https://app-server-tau.vercel.app/review?seviceid=${_id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                setReviews(data)
+                // setReviews(data)
+                // console.log(data)
+                const revarse = [...data].reverse()
+                setReviews(revarse)
+
             })
     }, [newReviw, _id])
 

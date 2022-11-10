@@ -30,6 +30,21 @@ const Login = () => {
         googleSingIn()
             .then(result => {
                 const user = result.user
+                const currenUser = {
+                    email: user.email
+                }
+                console.log('user is', currenUser)
+
+                // jwt token 
+                fetch('https://app-server-tau.vercel.app/jwt', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currenUser)
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
                 console.log(user)
                 navigate(from, { replace: true })
 
