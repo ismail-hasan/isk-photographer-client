@@ -70,20 +70,20 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input name='name' type="text" placeholder="Full Name" className="input input-bordered" />
+                            <input name='name' type="text" placeholder="Full Name" required className="input input-bordered" />
                         </div>
 
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="text" placeholder="Email" className="input input-bordered" />
+                            <input name='email' type="text" placeholder="Email" required className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type="password" placeholder="Password" className="input input-bordered" />
+                            <input name='password' type="password" placeholder="Password" required className="input input-bordered" />
                             <p className='pt-2'>already have't acount <Link className='underline' to='/login'> login</Link> </p>
                         </div>
                         <p className='text-red-500'>{error}</p>
