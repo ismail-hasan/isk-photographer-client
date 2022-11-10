@@ -26,6 +26,7 @@ const ContextProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currenUser => {
             // console.log('curren user is ', currenUser)
@@ -36,7 +37,7 @@ const ContextProvider = ({ children }) => {
         }
     }, [])
 
-    const userInfo = { user, createUser, logOut, signInUser  , googleSingIn}
+    const userInfo = { user, createUser, logOut, signInUser, googleSingIn,  }
     return (
         <authContext.Provider value={userInfo}>
             {children}

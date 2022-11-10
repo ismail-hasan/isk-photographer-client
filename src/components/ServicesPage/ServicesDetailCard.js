@@ -5,7 +5,7 @@ import Review from './Review';
 
 
 const ServicesDetailCard = ({ detail }) => {
-    const { _id, name, img, dec } = detail
+    const { _id, name, img, dec, Price } = detail
     const { user } = useContext(authContext)
     const [reviews, setReviews] = useState([])
     const [newReviw, setNewReviw] = useState(false)
@@ -64,13 +64,15 @@ const ServicesDetailCard = ({ detail }) => {
         <div className="py-20">
             <div className='w-[90%] mx-auto bg-base-100 shadow-xl flex items-center'>
                 <div className='w-1/2'>
-                    <img className='' src={img} alt="" />
+                    <img className='w-full h-[400px]' src={img} alt="" />
                 </div>
                 <div className="ml-10 w-1/2">
-                    <h2 className="card-title text-3xl">
+                    <h2 className="card-title text-3xl capitalize pb-3">
                         {name}
                     </h2>
-                    <p className='text-lg pt-5'>{dec}</p>
+                    <h3 className='text-lg font-semibold'>Price : <span className='text-[#e115e8] text-2xl py-1'>$ {Price}</span></h3>
+
+                    <p className='text-lg pt-4'>{dec}</p>
                 </div>
             </div>
             <div className='grid gap-5 w-[80%] mx-auto mt-20'>

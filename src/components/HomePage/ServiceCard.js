@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
-    const { img, dec, name, _id } = service
+    const { img, dec, name, _id, Price } = service
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <img className='' src={img} alt="Shoes" />
@@ -11,6 +11,7 @@ const ServiceCard = ({ service }) => {
                     {name}
                     <div className="badge badge-secondary">NEW</div>
                 </h2>
+                <h3 className='text-lg font-semibold'>Price : <span className='text-[#e115e8] text-2xl py-1'>$ {Price}</span></h3>
                 <p> {dec.length > 50 ? dec.slice(0, 59) + " ......" : dec}</p>
                 <Link to={`services/${_id}`}>
                     <button className='bg-[#e115e8] py-1 px-5 text-white capitalize mt-5  text-lg rounded'>Details</button>

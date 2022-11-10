@@ -23,10 +23,13 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
-                
+
 
             })
             .catch(e => console.log(e))
+
+
+
     }
     const handleGoogle = () => {
         googleSingIn()
@@ -38,6 +41,7 @@ const Register = () => {
             })
             .catch(e => console.log(e))
     }
+
 
     return (
         <div className="hero py-10 min-h-screen bg-base-200">
@@ -51,6 +55,7 @@ const Register = () => {
                             </label>
                             <input name='name' type="text" placeholder="Full Name" className="input input-bordered" />
                         </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>

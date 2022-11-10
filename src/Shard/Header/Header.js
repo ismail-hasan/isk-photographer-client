@@ -20,7 +20,7 @@ const Header = () => {
                         {/* all li show hare  */}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">Photo</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">ISK PHOROGRAPHY</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
