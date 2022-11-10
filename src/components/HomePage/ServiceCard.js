@@ -5,7 +5,7 @@ const ServiceCard = ({ service }) => {
     const { img, dec, name, _id } = service
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img src={img} alt="Shoes" /></figure>
+            <img className='' src={img} alt="Shoes" />
             <div className="card-body">
                 <h2 className="card-title">
                     {name}

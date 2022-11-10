@@ -22,10 +22,11 @@ const ServicesDetailCard = ({ detail }) => {
     }, [newReviw, _id])
 
 
-    const handleForom = (e) => {
+    const handleForm = (e) => {
         e.preventDefault()
         const form = e.target
-        const fullname = `${form.firstName.value} ${form.lastName.value}`
+        const fullname = form.name.value
+        // const fullname = `${form.firstName.value} ${form.lastName.value}`
         const message = form.message.value
         const email = form.email.value
         const reviewData = {
@@ -35,6 +36,7 @@ const ServicesDetailCard = ({ detail }) => {
             name,
             email,
         }
+        console.log(fullname);
 
 
         fetch('http://localhost:5000/review', {
@@ -46,18 +48,13 @@ const ServicesDetailCard = ({ detail }) => {
         })
             .then(res => res.json())
             .then(data => {
-                // if (message.length >= 4) {
-                //     alert('done')
-                // }
+
                 if (data.acknowledged) {
-                    // const newReview = [...reviews, data]
                     setNewReviw(!newReviw)
                     console.log(data)
                     alert('review added success')
                     form.reset()
-
                 }
-
             })
             .catch(e => console.log(e))
     }
@@ -67,12 +64,11 @@ const ServicesDetailCard = ({ detail }) => {
         <div className="py-20">
             <div className='w-[90%] mx-auto bg-base-100 shadow-xl flex items-center'>
                 <div className='w-1/2'>
-                    <img src={img} alt="" />
+                    <img className='' src={img} alt="" />
                 </div>
                 <div className="ml-10 w-1/2">
                     <h2 className="card-title text-3xl">
                         {name}
-                        {/* <div className="badge badge-secondary">NEW</div> */}
                     </h2>
                     <p className='text-lg pt-5'>{dec}</p>
                 </div>
@@ -89,10 +85,9 @@ const ServicesDetailCard = ({ detail }) => {
                 {
                     user?.email ?
                         <>
-                            <form onSubmit={handleForom} className='bg-white py-10 w-1/2 mx-auto rounded-md px-10'>
+                            <form onSubmit={handleForm} className='bg-white py-10 w-1/2 mx-auto rounded-md px-10'>
                                 <h2 className='text-4xl mb-10 text-center capitalize'>please review</h2>
-                                <input name='firstName' type="text" placeholder="Last Name" className="input input-bordered input-info w-full mt-8" required /><br />
-                                <input name='lastName' type="text" placeholder="Last Name" className="input input-bordered input-info w-full mt-8" required /><br />
+                                <input name='name' type="text" placeholder="Last Name" className="input input-bordered input-info w-full mt-8" defaultValue={user?.displayName || 'Unregistered'} readOnly required /><br />
                                 <input name='email' defaultValue={user?.email || 'Unregistered'} readOnly type="email" placeholder="Type here" className="input input-bordered input-info w-full mt-8" /> <br />
                                 <textarea name='message' className="textarea textarea-accent w-full mt-8 h-40" placeholder="Message" required></textarea>
                                 <button className='bg-black mb-5 text-white px-8 mt-5 text-lg rounded py-2'>Send</button>

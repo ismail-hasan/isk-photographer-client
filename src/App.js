@@ -10,6 +10,8 @@ import ServicesPage from './components/ServicesPage/ServicesPage';
 import ServicesDetails from './components/ServicesPage/ServicesDetails';
 import MyReviews from './components/MyReview/MyReview';
 import PrivetRouter from './PrivetRouter/PrivetRouter';
+import ReviewUpdate from './components/ReviewUpdate/ReviewUpdate';
+import MyServices from './MySevices/MyServices';
 
 function App() {
   const router = createBrowserRouter([
@@ -20,11 +22,16 @@ function App() {
         { path: '/blog', element: <Blog></Blog> },
         { path: '/login', element: <Login></Login> },
         { path: '/register', element: <Register></Register> },
+        { path: '/myservices', element: <PrivetRouter><MyServices></MyServices></PrivetRouter> },
         { path: '/myreview', element: <PrivetRouter><MyReviews></MyReviews></PrivetRouter> },
         {
           path: '/services',
           element: <ServicesPage></ServicesPage>,
           loader: () => fetch('http://localhost:5000/services')
+        },
+        {
+          path: '/editdata/:id',
+          element: <ReviewUpdate></ReviewUpdate>
         },
         {
           path: '/services/:id',

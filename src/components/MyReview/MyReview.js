@@ -6,13 +6,13 @@ import MyReviewData from './MyReviewData';
 const MyReviews = () => {
     const [myReviews, setMyReviews] = useState([])
     const { user } = useContext(authContext)
-    // console.log(user)
-    console.log(setMyReviews)
+
     useEffect(() => {
         fetch(`http://localhost:5000/review?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, [user?.email])
+   
     return (
         <div className='bg-white m-20'>
             <div className='grid gap-10'>
