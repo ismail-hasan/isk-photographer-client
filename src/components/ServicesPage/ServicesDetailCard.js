@@ -13,7 +13,7 @@ const ServicesDetailCard = ({ detail }) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?seviceid=${_id}`)
+        fetch(`https://app-server-tau.vercel.app/review?seviceid=${_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -39,7 +39,7 @@ const ServicesDetailCard = ({ detail }) => {
         console.log(fullname);
 
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://app-server-tau.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -89,7 +89,7 @@ const ServicesDetailCard = ({ detail }) => {
                         <>
                             <form onSubmit={handleForm} className='bg-white py-10 w-1/2 mx-auto rounded-md px-10'>
                                 <h2 className='text-4xl mb-10 text-center capitalize'>please review</h2>
-                                <input name='name' type="text" placeholder="Last Name" className="input input-bordered input-info w-full mt-8" defaultValue={user?.displayName || 'Unregistered'} readOnly required /><br />
+                                <input name='name' type="text" placeholder="User Name" className="input input-bordered input-info w-full mt-8" required /><br />
                                 <input name='email' defaultValue={user?.email || 'Unregistered'} readOnly type="email" placeholder="Type here" className="input input-bordered input-info w-full mt-8" /> <br />
                                 <textarea name='message' className="textarea textarea-accent w-full mt-8 h-40" placeholder="Message" required></textarea>
                                 <button className='bg-black mb-5 text-white px-8 mt-5 text-lg rounded py-2'>Send</button>

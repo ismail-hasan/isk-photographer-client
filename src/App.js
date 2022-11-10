@@ -22,21 +22,22 @@ function App() {
         { path: '/blog', element: <Blog></Blog> },
         { path: '/login', element: <Login></Login> },
         { path: '/register', element: <Register></Register> },
-        { path: '/myservices', element: <PrivetRouter><MyServices></MyServices></PrivetRouter> },
+        { path: '/addservices', element: <PrivetRouter><MyServices></MyServices></PrivetRouter> },
         { path: '/myreview', element: <PrivetRouter><MyReviews></MyReviews></PrivetRouter> },
         {
           path: '/services',
           element: <ServicesPage></ServicesPage>,
-          loader: () => fetch('http://localhost:5000/services')
+          loader: () => fetch('https://app-server-tau.vercel.app/services')
         },
         {
-          path: '/editdata/:id',
-          element: <ReviewUpdate></ReviewUpdate>
+          path: '/updatedata/:id',
+          element: <ReviewUpdate></ReviewUpdate>,
+          // loader: ({ params }) => fetch(`https://app-server-tau.vercel.app/review?id=${params.id}`) 
         },
         {
           path: '/services/:id',
           element: <ServicesDetails></ServicesDetails>,
-          loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+          loader: ({ params }) => fetch(`https://app-server-tau.vercel.app/services/${params.id}`)
         },
       ]
     }

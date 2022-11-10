@@ -1,23 +1,23 @@
-import { data } from 'autoprefixer';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const MyReviewData = ({ myreview }) => {
+const MyReviewData = ({ myreview, handleDelete, handleUpdate }) => {
     const { fullname, name, message, seviceid, _id } = myreview
+    console.log(myreview)
 
     // const navigate = useNavigate()
-    const handleDelete = (id) => {
-        // // navigate(`/editdata/${id}`)
-        const agree = window.confirm('are you sure delete this id')
+    // const handleDelete = (id) => {
+    //     // // navigate(`/editdata/${id}`)
+    //     const agree = window.confirm('are you sure delete this id')
 
-        if (agree) {
-            fetch(`http://localhost:5000/review/${_id}`, {
-                method: "DELETE",
-            })
-                .then(res => res.json())
-                .then(data => console.log())
-        }
-    }
+    //     if (agree) {
+    //         fetch(`https://app-server-tau.vercel.app/review/${seviceid}`, {
+    //             method: "DELETE",
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => console.log(data))
+    //     }
+    // }
     return (
         <div className='bg-base-300 p-5 rounded-md flex justify-between items-center '>
             <div>
@@ -34,8 +34,11 @@ const MyReviewData = ({ myreview }) => {
                 <p className='font-semibold'>{message}</p>
             </div>
             <div>
-                <button onClick={() => handleDelete(seviceid)} className='bg-red-500 ml-4 py-2 px-5 text-white capitalize'>delete</button>
-                {/* <button onClick={handleUpdate} className='bg-red-500 ml-4 py-2 px-5 text-white capitalize'>Update</button> */}
+                <button onClick={() => handleDelete(_id)} className='bg-red-500 ml-4 py-2 px-5 text-white capitalize'>delete</button>
+                <Link to={`/updatedata/${_id}`}>
+                    <button onClick={handleUpdate} className='bg-red-500 ml-4 py-2 px-5 text-white capitalize'>Update</button>
+
+                </Link>
             </div>
         </div>
     );

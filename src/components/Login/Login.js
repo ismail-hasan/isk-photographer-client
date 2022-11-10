@@ -19,6 +19,7 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                navigate('/')
             })
             .catch(e => console.log(e))
 

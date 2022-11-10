@@ -1,8 +1,10 @@
 // import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import TitleHook from '../../Hook/TitleHook';
 import ServicesDetailCard from './ServicesDetailCard';
 
 const ServicesDetails = () => {
+    TitleHook('ServicesDetails')
     const dataDetails = useLoaderData()
 
 

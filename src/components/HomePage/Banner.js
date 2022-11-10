@@ -10,7 +10,7 @@ const Banner = () => {
                 <div className="">
                     <p className='text-lg capitalize'>welcome to</p>
                     <h1 className="mb-5 text-5xl font-bold">ISK Photography</h1>
-                    <p className="mb-5 w-1/2 text-center mx-auto text-lg">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <p className="mb-5 w-1/2 text-center mx-auto text-lg">Photography is the art, application, and practice of creating durable images by recording light, either electronically by means of an image sensor</p>
                     <Link to='/services'>
                         <button className="bg-black uppercase py-3 px-6">All My services</button>
                     </Link>

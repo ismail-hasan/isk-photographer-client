@@ -1,7 +1,10 @@
 import React from 'react';
+import TitleHook from '../Hook/TitleHook';
 
 const MyServices = () => {
+    TitleHook('Add Services')
     const addService = (e) => {
+
         e.preventDefault()
         const form = e.target
         const name = form.name.value
@@ -15,7 +18,7 @@ const MyServices = () => {
         }
         console.log(serviceData);
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://app-server-tau.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

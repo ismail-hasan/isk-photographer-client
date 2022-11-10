@@ -13,7 +13,7 @@ const Services = () => {
     // console.log(count)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/limitservice`)
+        fetch(`https://app-server-tau.vercel.app/limitservice`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -26,8 +26,8 @@ const Services = () => {
     return (
         <>
             <div className='text-center pt-24 pb-10 '>
-                <h1 className='text-[40px] text-pink-500 font-semibold'>Our Services</h1>
-                <p className='text-lg pt-1'>Lorem ipsum dolor sit amet.</p>
+                <h1 className='text-[40px] text-pink-500 font-semibold'>Our latest Services</h1>
+                <p className='text-lg pt-1'>My New Services Is Hare</p>
             </div>
             <div className='grid grid-cols-3 gap-10 w-[90%] mx-auto mb-10'>
                 {
