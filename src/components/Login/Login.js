@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Login = () => {
     const { signInUser, googleSingIn } = useContext(authContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
     TitleHook('Login')
     const handleLogin = e => {
         e.preventDefault()
@@ -19,7 +21,7 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(e => console.log(e))
 
@@ -29,7 +31,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate('/')
+                navigate(from, { replace: true })
 
             })
             .catch(e => console.log(e))

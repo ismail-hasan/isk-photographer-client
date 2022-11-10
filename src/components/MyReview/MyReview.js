@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 import MyReviewData from './MyReviewData';
@@ -30,7 +31,7 @@ const MyReviews = () => {
                 .then(data => {
                     console.log(data)
                     if (data.deletedCount > 0) {
-                        alert('delete success')
+                        toast.error('review deleted')
                         const remainnig = myReviews.filter(rev => rev._id !== id)
                         setMyReviews(remainnig)
                     }

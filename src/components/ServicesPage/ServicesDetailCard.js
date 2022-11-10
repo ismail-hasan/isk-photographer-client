@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import Review from './Review';
 
@@ -52,7 +53,7 @@ const ServicesDetailCard = ({ detail }) => {
                 if (data.acknowledged) {
                     setNewReviw(!newReviw)
                     console.log(data)
-                    alert('review added success')
+                    toast.success('review added success')
                     form.reset()
                 }
             })

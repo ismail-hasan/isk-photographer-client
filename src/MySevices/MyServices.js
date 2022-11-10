@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import TitleHook from '../Hook/TitleHook';
 
 const MyServices = () => {
@@ -11,10 +12,12 @@ const MyServices = () => {
         // const fullname = `${form.firstName.value} ${form.lastName.value}`
         const dec = form.message.value
         const img = form.image.value
+        const Price = form.Price.value
         const serviceData = {
             img,
             name,
             dec,
+            Price
         }
         console.log(serviceData);
 
@@ -30,7 +33,7 @@ const MyServices = () => {
                 if (data.acknowledged) {
                     console.log(data)
                     form.reset()
-                    alert('review add sucess')
+                    toast.success('Services data added')
                 }
 
 
@@ -42,6 +45,7 @@ const MyServices = () => {
             <form onSubmit={addService} className='bg-white py-10 w-1/2 mx-auto rounded-md px-10'>
                 <h2 className='text-4xl mb-10 text-center capitalize'>Add Services</h2>
                 <input name='name' type="text" placeholder="Service Name" className="input input-bordered input-info w-full mt-8" required /><br />
+                <input name='Price' type="number" placeholder="Price" className="input input-bordered input-info w-full mt-8" required /><br />
                 <input name='image' type="text" placeholder="Image URL" className="input input-bordered input-info w-full mt-8" required /> <br />
                 <textarea name='message' className="textarea textarea-accent w-full mt-8 h-40" placeholder="Message" required></textarea>
                 <button className='bg-black mb-5 text-white px-8 mt-5 text-lg rounded py-2'>Send</button>
