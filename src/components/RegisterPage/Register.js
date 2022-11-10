@@ -4,7 +4,7 @@ import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Register = () => {
-    const { createUser, googleSingIn } = useContext(authContext)
+    const { createUser, googleSingIn, userProfile } = useContext(authContext)
     TitleHook('Register')
     const navigate = useNavigate()
 
@@ -23,10 +23,25 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                handleUserProfile(name);
+                navigate('/')
 
 
             })
             .catch(e => console.log(e))
+
+
+        const handleUserProfile = (name) => {
+            const profile = {
+                displayName: name,
+
+            };
+            userProfile(profile)
+                .then(() => { })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
 
 
 
