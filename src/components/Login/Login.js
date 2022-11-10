@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Login = () => {
     const { signInUser, googleSingIn } = useContext(authContext)
+    const [error, setError] = useState('')
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
@@ -23,7 +24,7 @@ const Login = () => {
                 form.reset()
                 navigate(from, { replace: true })
             })
-            .catch(e => console.log(e))
+            .catch(e => setError(e.message))
 
     }
     const handleGoogle = () => {
@@ -70,6 +71,7 @@ const Login = () => {
                             <input name='password' type="password" placeholder="password" className="input input-bordered" />
                             <p className='pt-2'>already have't acount <Link className='underline' to='/register'> register</Link> </p>
                         </div>
+                        <p className='text-red-500'>{error}</p>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>

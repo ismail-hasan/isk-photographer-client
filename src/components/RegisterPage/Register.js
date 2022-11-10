@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../ContextProvider/ContextProvider';
 import TitleHook from '../../Hook/TitleHook';
 
 const Register = () => {
     const { createUser, googleSingIn, userProfile } = useContext(authContext)
+    const [error, setError] = useState('')
+
     TitleHook('Register')
     const navigate = useNavigate()
 
@@ -28,7 +30,7 @@ const Register = () => {
 
 
             })
-            .catch(e => console.log(e))
+            .catch(e => setError(e.message))
 
 
         const handleUserProfile = (name) => {
@@ -84,6 +86,7 @@ const Register = () => {
                             <input name='password' type="password" placeholder="Password" className="input input-bordered" />
                             <p className='pt-2'>already have't acount <Link className='underline' to='/login'> login</Link> </p>
                         </div>
+                        <p className='text-red-500'>{error}</p>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register Now</button>
                         </div>

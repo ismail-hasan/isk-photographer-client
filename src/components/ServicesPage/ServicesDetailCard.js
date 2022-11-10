@@ -18,8 +18,7 @@ const ServicesDetailCard = ({ detail }) => {
         fetch(`https://app-server-tau.vercel.app/review?seviceid=${_id}`)
             .then(res => res.json())
             .then(data => {
-                // setReviews(data)
-                // console.log(data)
+              
                 const revarse = [...data].reverse()
                 setReviews(revarse)
 
